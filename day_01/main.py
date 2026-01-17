@@ -1,0 +1,1 @@
+print("Tengo fé absoluta que me convertire en un programador de python bilingue exitoso. Casa dia estudio con diciplina y progreso real hacia altos ingresos")

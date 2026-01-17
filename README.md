@@ -1,24 +1,25 @@
 # python-100-days-projects 🐍
-“Projects completed as part of the 100 Days of Python challenge (inspired by the Angela Yu course)”
+Projects completed as part of the 100 Days of Python challenge  
+(inspired by the Angela Yu course)
 
 ---
 
+Course: 100 Days of Code – Python (Angela Yu)
 
-Curso: 100 Days of Code – Python (Angela Yu)
+This repository contains my daily exercises and projects  
+developed throughout the course.
 
-Este repositorio contiene mis ejercicios y proyectos diarios
-realizados durante el curso.
-
-## 📂 Estructura
-- day_01 → Variables y entrada de datos
-- day_02 → Tipos de datos y operaciones
-- day_03 → Condicionales
+## 📂 Structure
+- day_01 → Variables and user input
+- day_02 → Data types and operations
+- day_03 → Conditionals
 - ...
 
-## 🚀 Objetivo
-Consolidar fundamentos de Python y buenas prácticas
-de desarrollo usando Git y GitHub.
+## 🚀 Goal
+To strengthen Python fundamentals and apply good development  
+practices using Git and GitHub.
 
-## 👤 Autor
+## 👤 Author
 Pedro Nicanor Betancourt Achagua
+
 

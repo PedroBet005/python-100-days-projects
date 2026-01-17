@@ -1,1 +1,5 @@
-print("Tengo fé absoluta que me convertire en un programador de python bilingue exitoso. Casa dia estudio con diciplina y progreso real hacia altos ingresos")
+print("Welcome to the band name generator")
+city = input("Enter the name of your hometown\n")
+pet = input("Enter the name of your first mascot\n")
+
+print(f"El nombre de tu banda es: {city}{pet}")

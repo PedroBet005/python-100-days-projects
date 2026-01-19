@@ -1,75 +1,55 @@
-import random
+# TODO-1: Importar e imprimir el logo desde art.py cuando el programa inicia.
+import art
+print(art.logo)
 
-# TODO-1: - Actualizar la lista de palabras para usar 'word_list' desde hangman_words.py
-from hangman_words import word_list
-from hangman_art import stages, logo
+alphabet = [
+    'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
+    'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'
+]
 
-lives = 6
+# TODO-2: ¿Qué pasa si el usuario ingresa un número, símbolo o espacio?
 
-# TODO-3: - Importar el logo desde hangman_art.py e imprimirlo al inicio del juego.
-print(logo)
 
-chosen_word = random.choice(word_list)
-print(chosen_word)
+def caesar(original_text, shift_amount, encode_or_decode):
+    output_text = ""
 
-placeholder = ""
-word_length = len(chosen_word)
-for position in range(word_length):
-    placeholder += "_"
+    if encode_or_decode == "decode":
+        shift_amount *= -1
 
-print("Word to guess: " + placeholder)
+    for letter in original_text:
 
-game_over = False
-correct_letters = []
-
-while not game_over:
-
-    # TODO-6: - Actualizar el código para decirle al usuario cuántas vidas le quedan.
-    print(
-        f"****************************{lives}/6 LIVES LEFT****************************"
-    )
-    guess = input("Guess a letter: ").lower()
-
-    # TODO-4: - Si el usuario ha ingresado una letra que ya adivinó,
-    # imprimir la letra y avisarle.
-
-    if guess in correct_letters:
-        print(f"You've already guessed {guess}")
-
-    display = ""
-
-    for letter in chosen_word:
-        if letter == guess:
-            display += letter
-            correct_letters.append(guess)
-        elif letter in correct_letters:
-            display += letter
+        if letter not in alphabet:
+            output_text += letter
         else:
-            display += "_"
+            shifted_position = alphabet.index(letter) + shift_amount
+            shifted_position %= len(alphabet)
+            output_text += alphabet[shifted_position]
 
-    print("Word to guess: " + display)
+    print(f"Here is the {encode_or_decode}d result: {output_text}")
 
-    # TODO-5: - Si la letra no está en chosen_word, imprimir la letra
-    # y avisar que no está en la palabra.
-    # Ej: Adivinaste d, no está en la palabra. Pierdes una vida.
 
-    if guess not in chosen_word:
-        lives -= 1
-        print(f"You guessed {guess}, that's not in the word. You lose a life.")
+# TODO-3: ¿Puedes encontrar una forma de reiniciar el programa del cifrado?
 
-        if lives == 0:
-            game_over = True
+should_continue = True
+while should_continue:
 
-            # TODO-7: - Actualizar el print para mostrar la palabra correcta
-            # que el usuario estaba intentando adivinar.
-            print(
-                f"***********************IT WAS {chosen_word}! YOU LOSE**********************"
-            )
+    direction = input(
+        "Type 'encode' to encrypt, type 'decode' to decrypt:\n"
+    ).lower()
+    text = input("Type your message:\n").lower()
+    shift = int(input("Type the shift number:\n"))
 
-    if "_" not in display:
-        game_over = True
-        print("****************************YOU WIN****************************")
+    caesar(
+        original_text=text,
+        shift_amount=shift,
+        encode_or_decode=direction
+    )
 
-    # TODO-2: - Actualizar el código para usar la lista stages
-    # desde el archivo hangman_art.py
-    print(stages[lives])
+    restart = input(
+        "Type 'yes' if you want to go again. Otherwise, type 'no'.\n"
+    ).lower()
+
+    if restart != "yes":
+        should_continue = False
+        print("GoodBye")
+
